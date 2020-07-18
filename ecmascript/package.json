@@ -1,0 +1,22 @@
+{
+  "name": "ecmascript",
+  "version": "1.0.0",
+  "description": "Comprendiendo ecmascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristian-rincon/ecmascript.git"
+  },
+  "keywords": [
+    "ecmascript"
+  ],
+  "author": "Cristian Rincón",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cristian-rincon/ecmascript/issues"
+  },
+  "homepage": "https://github.com/cristian-rincon/ecmascript#readme"
+}

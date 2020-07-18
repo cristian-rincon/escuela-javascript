@@ -1,0 +1,35 @@
+{
+  "name": "mediaplayer-pager",
+  "version": "1.0.0",
+  "description": "Proyecto del Curso Profesional de JavaScript de la Escuela de JavaScript de Platzi.",
+  "license": "MIT",
+  "author": "Cristian Rincón <cristian.o.rincon.b@gmail.com>",
+  "keywords": [
+    "package"
+  ],
+  "scripts": {
+    "start": "parcel index.html ejercicios/index.html ejercicios/**/*.html",
+    "format": "prettier --write '{*.js,assets/**/*.{js,jsx}}'"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristian-rincon/professional-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cristian-rincon/professional-js/issues"
+  },
+  "homepage": "https://github.com/platzi/javascript-profesional#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.0.0-alpha2",
+    "mediaplayer-js": "^1.0.0"
+  }
+}

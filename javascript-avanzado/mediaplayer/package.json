@@ -1,0 +1,28 @@
+{
+  "name": "mediaplayer-js",
+  "version": "1.0.0",
+  "description": "Simply mediaplayer",
+  "main": "lib/MediaPlayer.js",
+  "scripts": {
+    "build": "tsc src/**/*.ts src/plugins/*.ts src/plugins/**/*.ts --outDir lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristian-rincon/professional-js.git"
+  },
+  "keywords": [
+    "package",
+    "mediaplayer",
+    "javascript"
+  ],
+  "author": "Cristian Rincón",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cristian-rincon/professional-js/issues"
+  },
+  "homepage": "https://github.com/cristian-rincon/professional-js#readme",
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
+}
