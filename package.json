@@ -1,0 +1,28 @@
+{
+  "name": "escuela-javascript",
+  "version": "1.0.0",
+  "description": "proyectos realizados en la escuela de javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristian-rincon/escuela-javascript.git"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "react"
+  ],
+  "author": "Cristian Rincon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cristian-rincon/escuela-javascript/issues"
+  },
+  "homepage": "https://github.com/cristian-rincon/escuela-javascript#readme",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "pretty-quick": "^2.0.1"
+  }
+}
