@@ -1,12 +1,14 @@
+const boom = require('@hapi/boom');
+
 function validate() {
-    return false
+    return false;
 }
 
-function validationHandler(schema, check="body") {
-    return function(req,res, next) {
-        const error = validate(req[check], schema)
-        error ? next(new Error(error)) : next()
-    }
+function validationHandler(schema, check = 'body') {
+    return function (req, res, next) {
+        const error = validate(req[check], schema);
+        error ? next(boom.badRequest(error)) : next();
+    };
 }
 
-module.exports = validationHandler
+module.exports = validationHandler;
