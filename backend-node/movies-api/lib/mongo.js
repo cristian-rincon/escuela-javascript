@@ -1,6 +1,6 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const { config } = require('../config');
-
+const debug = require('debug')('app:db');
 const USER = encodeURIComponent(config.dbUser);
 const PASSWORD = encodeURIComponent(config.dbPassword);
 const DB_NAME = config.dbName;
@@ -20,7 +20,7 @@ class MongoLib {
                     if (err) {
                         reject(err);
                     }
-                    console.log('Connect succesFull');
+                    debug('Connect succesFull');
                     resolve(this.client.db(this.dbName));
                 });
             });
@@ -72,7 +72,5 @@ class MongoLib {
             .then(() => id);
     }
 }
-
-
 
 module.exports = MongoLib;
