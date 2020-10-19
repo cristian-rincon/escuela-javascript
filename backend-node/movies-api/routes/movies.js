@@ -1,6 +1,14 @@
 const express = require('express');
 const MoviesService = require('../services/movies');
 
+const {
+    movieIdSchema,
+    createMovieSchema,
+    updateMovieSchema,
+} = require('../utils/schemas/movies');
+
+const validationHandler = require('../utils/middleware/validationHandler');
+
 function moviesApi(app) {
     const router = express.Router();
     app.use('/api/movies', router);
@@ -19,20 +27,28 @@ function moviesApi(app) {
         }
     });
     // Obtener una película por su id
-    router.get('/:movieId', async function (req, res, next) {
-        const { movieId } = req.params;
-        try {
-            const movies = await moviesService.getMovie({ movieId });
-            res.status(200).json({
-                data: movies,
-                message: 'movies retrieved',
-            });
-        } catch (error) {
-            next(error);
+    router.get(
+        '/:movieId',
+        validationHandler({ movieId: movieIdSchema }, 'params'),
+        async function (req, res, next) {
+            const { movieId } = req.params;
+            try {
+                const movies = await moviesService.getMovie({ movieId });
+                res.status(200).json({
+                    data: movies,
+                    message: 'movies retrieved',
+                });
+            } catch (error) {
+                next(error);
+            }
         }
-    });
+    );
     // Agregar una película
-    router.post('/', async function (req, res, next) {
+    router.post('/', validationHandler(createMovieSchema), async function (
+        req,
+        res,
+        next
+    ) {
         const { body: movie } = req;
         try {
             const createMovieId = await moviesService.createMovie({ movie });
@@ -45,23 +61,28 @@ function moviesApi(app) {
         }
     });
     // Modificar una película
-    router.put('/:movieId', async function (req, res, next) {
-        const { movieId } = req.params;
-        const { body: movie } = req;
+    router.put(
+        '/:movieId',
+        validationHandler({ movieId: movieIdSchema }),
+        validationHandler(updateMovieSchema),
+        async function (req, res, next) {
+            const { movieId } = req.params;
+            const { body: movie } = req;
 
-        try {
-            const updatedMovieId = await moviesService.updateMovie({
-                movieId,
-                movie,
-            });
-            res.status(200).json({
-                data: updatedMovieId,
-                message: 'movie updated',
-            });
-        } catch (error) {
-            next(error);
+            try {
+                const updatedMovieId = await moviesService.updateMovie({
+                    movieId,
+                    movie,
+                });
+                res.status(200).json({
+                    data: updatedMovieId,
+                    message: 'movie updated',
+                });
+            } catch (error) {
+                next(error);
+            }
         }
-    });
+    );
     // Modificar una película
     router.patch('/:movieId', async function (req, res, next) {
         const { movieId } = req.params;
@@ -81,20 +102,24 @@ function moviesApi(app) {
         }
     });
     // Eliminar una película
-    router.delete('/:movieId', async function (req, res, next) {
-        const { movieId } = req.params;
-        try {
-            const deletedMovieId = await moviesService.deleteMovie({
-                movieId,
-            });
-            res.status(200).json({
-                data: deletedMovieId,
-                message: 'movie deleted',
-            });
-        } catch (error) {
-            next(error);
+    router.delete(
+        '/:movieId',
+        validationHandler({ movieId: movieIdSchema }, 'params'),
+        async function (req, res, next) {
+            const { movieId } = req.params;
+            try {
+                const deletedMovieId = await moviesService.deleteMovie({
+                    movieId,
+                });
+                res.status(200).json({
+                    data: deletedMovieId,
+                    message: 'movie deleted',
+                });
+            } catch (error) {
+                next(error);
+            }
         }
-    });
+    );
 }
 
 module.exports = moviesApi;
