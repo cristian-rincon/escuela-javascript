@@ -1,9 +1,16 @@
+import dotenv from "dotenv";
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+dotenv.config();
+
+const { ENV } = process.env;
+
 module.exports = {
-  entry: "./src/index.js",
+  mode: ENV,
+  entry: ["./src/frontend/index.js", "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true"],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -50,6 +57,7 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: "public/index.html",
       filename: "index.html",
