@@ -1,3 +1,11 @@
+---
+marp: true
+theme: default
+paginate: true
+header: "js-fundamentos-node"
+footer: "Escuela de Javascript"
+---
+
 <div align="center">
   <h1>Backend con Node.js</h1>
 </div>
@@ -7,6 +15,7 @@
     width="60%"
    alt="nodejs-logo">
 </div>
+---
 
 ## Tabla de contenido
 
@@ -77,6 +86,7 @@
 - [Como implementar una capa de manejo de caché en express](#como-implementar-una-capa-de-manejo-de-caché-en-express)
 - [¿Cómo contener tu aplicación en Docker?](#cómo-contener-tu-aplicación-en-docker)
 - [Despliegue en now](#despliegue-en-now)
+---
 
 ## ¿Qué es Node.js y para que sirve?
 
@@ -95,6 +105,7 @@ Nodejs fue tomar el engine de JS chrome V8 para crear un entorno de ejecución y
 <div align="right">
   <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
 </div>
+---
 
 ## Fechas importantes de NodeJS
 
@@ -113,12 +124,14 @@ Nodejs fue tomar el engine de JS chrome V8 para crear un entorno de ejecución y
 <div align="right">
   <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
 </div>
+---
 
 ## Diferencias entre NodeJs y Javascript
 
 ![node-vs-js](./assets_for_notes/node-vs-js.png)
 
 En Javascript tenemos el [DOM document object model]() es la interfaz que nos permite interpretar el documento html en javascript como lo es el objeto window, también tenemos el [CSSDOM]() que es la interfaz que nos permite **manipular el css** en javascript, por otro lado tenemos el [FetchAPI](https://developer.mozilla.org/es/docs/Web/API/Fetch_API) que por el cual podemos hacer **request** y que nos devuelva una promesa, también tenemos toda la capa de [webstorage](https://www.w3schools.com/html/html5_webstorage.asp) que consiste en el [sessionStorage](https://developer.mozilla.org/es/docs/Web/API/Window/sessionStorage) y el [localStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage) que eso no existe en nodejs, tenemos el modulo de [canvas API](https://developer.mozilla.org/es/docs/Web/HTML/Canvas) que nos permite hacer gráficos en la web en 2D y 3D y apartir de ahi tenemos una seríe de APIS como lo son: el [Web Bluetooth AP](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API), [AudioAPI](https://developer.mozilla.org/es/docs/Web_Audio_API) y [webAutenthicationAPI](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API).
+---
 
 Por otro lado **en Nodejs** tenemos una serie de modulos:
 
@@ -134,6 +147,7 @@ Por otro lado **en Nodejs** tenemos una serie de modulos:
 <div align="right">
   <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
 </div>
+---
 
 ## Instalación de Node.js
 
@@ -144,12 +158,14 @@ Por defecto Node.js detecta tu sistema operativo y descarga el archivo indicado 
 <div align="right">
   <small><a href="#tabla-de-contenido">🡡 volver al inicio</a></small>
 </div>
+---
 
 ## Arquitectura orientada a eventos
 
 Uno de los paradigmas de programación en nodejs más populares es la arquitectura orientada a eventos, los eventos nos permiten manipular el código asincrono de una mejor manera. Respasemos algunos ejemplos de callback
 
 Concepto **Error First Callback**: _cuando un callback tiene un error lo que vamos a enviar como primer párametro es el error_.
+---
 
 Usando **Callback**
 
@@ -174,6 +190,7 @@ asyncCallback((err, msg) => {
   }
 });
 ```
+---
 
 Usando **Promesas**:
 
@@ -201,6 +218,7 @@ promise
   .then((msg) => console.log("message", msg))
   .catch((err) => console.log("Error", err));
 ```
+---
 
 Aún hay una mejor manera de hacer estó, lo importante de las promesas es que esto se empieza a generar un código en cascada que es dificil de leer con el tiempo, ahora recientemente se puede usar [async await](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/await) que es una manera de escribir código asincrono que se vea sincrono.
 
