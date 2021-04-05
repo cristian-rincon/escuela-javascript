@@ -12,9 +12,9 @@
     "format": "prettier --write '{*.js,assets/**/*.{js,jsx}}'"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^1.19.1",
-    "typescript": "^3.7.5"
+    "parcel-bundler": "1.12.4",
+    "prettier": "1.19.1",
+    "typescript": "3.7.5"
   },
   "browserslist": [
     "last 1 Chrome version"

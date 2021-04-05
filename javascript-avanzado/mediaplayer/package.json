@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/cristian-rincon/professional-js#readme",
   "devDependencies": {
-    "typescript": "^3.7.5"
+    "typescript": "3.7.5"
   }
 }
